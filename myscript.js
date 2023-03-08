@@ -33,7 +33,7 @@ else
    {
     price = price - (price / 100 * youngDiscount);
    }
-   if(parseInt(age) >= 60) 
+   if(parseInt(age) > 65) 
    {
     price = price - (price / 100 * oldDiscount);
    }
