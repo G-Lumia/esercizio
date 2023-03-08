@@ -13,10 +13,29 @@ const age= parseInt(prompt("Inserisci la tua età"));;
 
 
 const travelFee = 0.21;
-const youngDiscount = 0.2;
-const oldDiscount = 0.4;
+const youngDiscount = 20;
+const oldDiscount = 40;
 
 // calcolo del prezzo totale senza sconti
 
 let price = (kmTrip * travelFee).toFixed(2);
 
+if( (isNaN(age)) || (parseInt(age) < 0) || (parseInt(age) > 110) || (isNaN(kmTrip)) || (parseInt(kmTrip) <= 0))
+{
+    document.getElementById("message").innerHTML = `I dati inseriti non sono corretti: ricarica la pagina.`;
+}
+else
+{
+   if(parseInt(age) < 18)
+   {
+    price = price - (price / 100 * youngDiscount);
+   }
+   if(parseInt(age) >= 60) 
+   {
+    price = price - (price / 100 * oldDiscount);
+   }
+
+   document.getElementById("inputAge").innerHTML = `<h5> ${age} </h5>`; 
+   document.getElementById("inputKm").innerHTML = `<h5> ${kmTrip} </h5>`; 
+   document.getElementById("totalPrice").innerHTML = `<h1> ${price} </h1>`; 
+}
