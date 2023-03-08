@@ -20,10 +20,13 @@ const oldDiscount = 40;
 
 let price = (kmTrip * travelFee).toFixed(2);
 
+// ciclo per controllare se i valori inseriti sono corretti
 if( (isNaN(age)) || (parseInt(age) < 0) || (parseInt(age) > 110) || (isNaN(kmTrip)) || (parseInt(kmTrip) <= 0))
 {
     document.getElementById("message").innerHTML = `I dati inseriti non sono corretti: ricarica la pagina.`;
 }
+
+// cicli per verificare se l'utente potrà avere o meno uno sconto in base alla propria età
 else
 {
    if(parseInt(age) < 18)
@@ -35,7 +38,7 @@ else
     price = price - (price / 100 * oldDiscount);
    }
 
-   document.getElementById("inputAge").innerHTML = `<h5> ${age} </h5>`; 
-   document.getElementById("inputKm").innerHTML = `<h5> ${kmTrip} </h5>`; 
-   document.getElementById("totalPrice").innerHTML = `<h1> ${price} </h1>`; 
+   document.getElementById("inputAge").innerHTML = `${age}`; 
+   document.getElementById("inputKm").innerHTML = `${kmTrip}km`; 
+   document.getElementById("totalPrice").innerHTML = `${price}€ `; 
 }
